@@ -174,7 +174,7 @@ def fix_segm(txt):
     return doc
 # Takes in input a corpus taken from conll.read_corpus_conll()
 # and executes the two points of the first request of the assignment
-def FirstRequest(corpus, mapping):
+def firstRequest(corpus, mapping):
     docstart = base[0]
     # Remove the docstart lines
     tst_corpus = [sent for sent in base if(sent!=docstart)]
@@ -220,7 +220,7 @@ def FirstRequest(corpus, mapping):
     print(pd_tbl)
 # Takes in input a string/doc and does the second request of the assignment
 # If you want to input a Doc, set also is_string=False
-def SecondRequest(txt, is_string=True):
+def secondRequest(txt, is_string=True):
     res = ent_grouping(txt, is_string = True)
     # Dictionary with frequencies
     freq = {}
@@ -241,7 +241,7 @@ def SecondRequest(txt, is_string=True):
     print(freq)
 # Function that takes in input a string and fixes the segmentation of
 # the doc if needed
-def ThirdRequest(txt):
+def thirdRequest(txt):
     res = fix_segm(txt)
     printed = []
     for ent in res.ents:
@@ -277,9 +277,9 @@ mapping = {
     "ORDINAL": "O",
     "CARDINAL":  "O"
 }
-FirstRequest(base, mapping)
+firstRequest(base, mapping)
 ########################## Second request ###############################
 test = "Apple's Steve Jobs died in 2011 in Palo Alto, California."
-SecondRequest(test)
+secondRequest(test)
 ########################## Third request ######################################
-ThirdRequest(test)
+thirdRequest(test)
